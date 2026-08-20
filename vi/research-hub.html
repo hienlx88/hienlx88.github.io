@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Góc Nghiên cứu của Xuan-Hien Le — tips nghiên cứu, cơ hội học thuật, cập nhật khoa học nước và câu chuyện khoa học.">
+  <link rel="alternate" hreflang="en" href="https://hienlx88.github.io/research-hub.html">
+  <link rel="alternate" hreflang="vi" href="https://hienlx88.github.io/vi/research-hub.html">
+  <title>Góc Nghiên cứu | Xuan-Hien Le</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .hub-hero{padding:86px 0;background:linear-gradient(135deg,#f7fbfc,#e9f6f7);border-bottom:1px solid var(--line)}
+    .hub-hero .lead{max-width:880px}.hub-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.hub-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(8,47,73,.05)}.hub-body{padding:24px}.hub-card img{width:100%;height:220px;object-fit:cover;background:#f2f7f9}.hub-card.figure img{object-fit:contain;padding:12px}.hub-kicker{font-size:var(--fs-xs);letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--teal)}
+    .tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.tip-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--teal);border-radius:18px;padding:23px}.tip-card:nth-child(2){border-top-color:var(--blue)}.tip-card:nth-child(3){border-top-color:var(--gold)}.tip-card:nth-child(4){border-top-color:#6973c8}.tip-card:nth-child(5){border-top-color:#438e5f}.tip-card:nth-child(6){border-top-color:#c66c56}.tip-card p{font-size:var(--fs-sm);color:var(--muted);margin-bottom:0}
+    .editor-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.editor-box{min-height:260px;border-radius:22px;padding:30px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}.editor-box:before{content:"";position:absolute;width:280px;height:280px;border:1px solid rgba(255,255,255,.17);border-radius:50%;right:-95px;top:-110px;box-shadow:0 0 0 38px rgba(255,255,255,.035)}.editor-box.springer{background:linear-gradient(145deg,#0b5c6e,#15989d)}.editor-box.iop{background:linear-gradient(145deg,#0b3150,#1b618c)}.editor-box h3{color:#fff;font-family:"Source Serif 4",serif;font-size:1.55rem;margin:7px 0}.editor-box p{color:#dcecf1}.editor-box a{color:#fff;font-weight:800}
+    .science-story{display:grid;grid-template-columns:1.05fr .95fr;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden}.science-story img{width:100%;height:100%;min-height:340px;object-fit:contain;padding:16px;background:#f5fafb}.story-copy{padding:32px}.story-copy p{color:var(--muted)}
+    .hub-note{margin-top:20px;background:var(--sand);border:1px solid #ead9b4;border-radius:18px;padding:22px;color:#5a4931}
+    @media(max-width:900px){.hub-grid3,.tips-grid,.editor-grid,.science-story{grid-template-columns:1fr}.science-story img{min-height:250px}}
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="container nav-wrap"><a class="brand" href="/vi/">Xuan-Hien Le<small>Góc Nghiên cứu</small></a><button class="nav-toggle" aria-label="Mở menu" aria-expanded="false">Menu</button><nav class="nav"><a href="/vi/">Hồ sơ học thuật</a><a href="#tips">Research Tips</a><a href="#editorial">Guest Editor</a><a href="#updates">Cập nhật</a><a href="#stories">Câu chuyện khoa học</a></nav></div></header>
+
+<main>
+  <section class="hub-hero"><div class="container"><p class="eyebrow">Thực hành nghiên cứu · Khoa học Nước · Phát triển học thuật</p><h1>Góc Nghiên cứu</h1><p class="lead">Một không gian mở rộng của website học thuật cá nhân: chia sẻ các tip nghiên cứu chuyên ngành có tính thực hành, cơ hội xuất bản, hướng nghiên cứu mới trong hydrology, hydraulics, remote sensing và AI for Water Science, cùng những câu chuyện khoa học ngắn bằng tiếng Việt.</p></div></section>
+
+  <section id="tips" class="section"><div class="container"><div class="section-heading"><div><p class="section-kicker">Research Tips</p><h2>Tips thực hành cho nghiên cứu ngành nước</h2></div><p>Các ghi chú ngắn, tập trung vào những quyết định dễ ảnh hưởng tới độ tin cậy của nghiên cứu định lượng và mô hình hóa.</p></div><div class="tips-grid">
+    <article class="tip-card"><div class="hub-kicker">Tip 01 · Validation</div><h3>Đừng chỉ báo cáo một metric</h3><p>NSE hoặc R² cao chưa đủ. Với forecasting nên đọc đồng thời bias, RMSE/MAE, peak timing, peak magnitude và khả năng tổng quát hóa giữa các sự kiện hoặc các năm.</p></article>
+    <article class="tip-card"><div class="hub-kicker">Tip 02 · AI/ML</div><h3>Split dữ liệu theo thời gian</h3><p>Random split có thể làm rò rỉ thông tin mùa vụ. Temporal hold-out thường phản ánh bài toán dự báo thực tế tốt hơn trong hydrology.</p></article>
+    <article class="tip-card"><div class="hub-kicker">Tip 03 · Remote Sensing</div><h3>Kiểm tra cả spatial consistency</h3><p>Một sản phẩm mưa có RMSE trung bình tốt vẫn có thể tái tạo sai cấu trúc không gian. Hãy kiểm tra field, gradient và vùng mưa cực trị.</p></article>
+    <article class="tip-card"><div class="hub-kicker">Tip 04 · Flood Modelling</div><h3>DEM là một nguồn bất định</h3><p>DEM có thể quyết định đường truyền lũ và flood extent. Sensitivity analysis theo DEM/elevation bias nên là một phần của uncertainty assessment.</p></article>
+    <article class="tip-card"><div class="hub-kicker">Tip 05 · Publishing</div><h3>Chọn journal theo scope trước quartile</h3><p>Quartile hữu ích, nhưng scope, audience và độ phù hợp phương pháp mới quyết định khả năng qua desk screening và tiếp cận đúng cộng đồng.</p></article>
+    <article class="tip-card"><div class="hub-kicker">Tip 06 · Reproducibility</div><h3>Lưu pipeline, không chỉ lưu kết quả</h3><p>Version dữ liệu, preprocessing, model configuration và evaluation protocol cần được ghi lại để có thể tái tạo kết quả khi reviewer yêu cầu.</p></article>
+  </div></div></section>
+
+  <section id="editorial" class="section alt"><div class="container"><div class="section-heading"><div><p class="section-kicker">Guest Editor</p><h2>Hai collection quốc tế</h2></div><p>Hai hoạt động Guest Editor/Lead Guest Editor vừa là academic service, vừa là nơi kết nối những hướng nghiên cứu mới trong khoa học nước.</p></div><div class="editor-grid">
+    <article class="editor-box springer"><div class="hub-kicker" style="color:#c7f0ed">Springer Nature · Applied Water Science</div><h3>Machine Learning and Data-Driven Approaches for Hydrology and Water Resource Management</h3><p>Collection về machine learning, hybrid AI–physics, remote sensing, monitoring và decision support trong hydrology và water management.</p><a href="https://link.springer.com/collections/ajaaacbbhe" target="_blank" rel="noopener">Mở collection ↗</a></article>
+    <article class="editor-box iop"><div class="hub-kicker" style="color:#c5e4f5">IOP Publishing · Environmental Research Communications</div><h3>Monitoring and Modelling of Water Resources</h3><p>Focus Collection về monitoring, modelling, remote sensing, data science và các phương pháp mới trong nghiên cứu tài nguyên nước.</p><a href="https://iopscience.iop.org/collections/erc-260210-1057" target="_blank" rel="noopener">Mở collection ↗</a></article>
+  </div></div></section>
+
+  <section id="updates" class="section"><div class="container"><div class="section-heading"><div><p class="section-kicker">Cập nhật nghiên cứu</p><h2>Một số hướng đáng theo dõi</h2></div><p>Không phải news feed tổng hợp; chỉ chọn các hướng liên quan trực tiếp đến water science, modelling và AI.</p></div><div class="hub-grid3">
+    <article class="hub-card figure"><img src="https://mdpi-res.com/d_attachment/remotesensing/remotesensing-12-02731/article_deploy/html/images/remotesensing-12-02731-g006.png" alt="ConvAE cho hiệu chỉnh mưa vệ tinh"><div class="hub-body"><div class="hub-kicker">Deep Learning</div><h3>Bias correction trước khi mô hình thủy văn</h3><p>AI không chỉ để dự báo đầu ra; nó còn có thể cải thiện chất lượng input như satellite precipitation trước khi chạy mô hình thủy văn.</p><a href="https://www.mdpi.com/2072-4292/12/17/2731" target="_blank" rel="noopener">Bài liên quan ↗</a></div></article>
+    <article class="hub-card"><div class="hub-body"><div class="hub-kicker">Uncertainty</div><h3>Performance không đồng nghĩa với reliability</h3><p>Metric cao không đảm bảo mô hình đáng tin cậy trong mọi sự kiện. Ensembles, Monte Carlo dropout và event-wise validation giúp đọc uncertainty tốt hơn.</p></div></article>
+    <article class="hub-card"><div class="hub-body"><div class="hub-kicker">Physics + Data</div><h3>Hybrid modelling ngày càng quan trọng</h3><p>Mục tiêu không phải chọn “physics hay AI”, mà là tận dụng domain constraints đồng thời học pattern phức tạp từ dữ liệu.</p></div></article>
+  </div></div></section>
+
+  <section id="stories" class="section alt"><div class="container"><div class="section-heading"><div><p class="section-kicker">Câu chuyện khoa học</p><h2>Giải thích khoa học theo cách dễ đọc hơn</h2></div><p>Giữ tính khoa học nhưng kể ngắn, rõ và luôn quay lại một câu hỏi nghiên cứu cụ thể.</p></div><article class="science-story"><img src="https://mdpi-res.com/d_attachment/remotesensing/remotesensing-12-02731/article_deploy/html/images/remotesensing-12-02731-g012.png" alt="Phân bố mưa không gian trên lưu vực Mekong"><div class="story-copy"><div class="hub-kicker">Câu chuyện #01</div><h3 style="font-family:'Source Serif 4',serif;font-size:1.55rem">Một bản đồ mưa “đẹp” chưa chắc là một bản đồ mưa “đúng”</h3><p>Khi nhìn một rainfall map, chúng ta dễ bị thuyết phục bởi màu sắc và cấu trúc không gian. Nhưng với mô hình thủy văn, câu hỏi quan trọng hơn là lượng mưa có đúng về cường độ, vị trí, thời gian và gradient không.</p><p>Đó là lý do bias correction không nên chỉ đánh giá bằng một chỉ số trung bình. Một correction tốt phải cải thiện cả thống kê lẫn cấu trúc không gian — nếu không, sai số có thể tiếp tục lan truyền vào mô hình dòng chảy và lũ.</p><a class="button primary" href="https://www.mdpi.com/2072-4292/12/17/2731" target="_blank" rel="noopener">Xem nghiên cứu gốc</a></div></article><div class="hub-note"><strong>Định hướng:</strong> Các câu chuyện tiếp theo có thể khai thác “Vì sao DEM khác nhau tạo ra bản đồ ngập khác nhau?”, “AI dự báo lũ tốt nhưng có đáng tin không?”, hoặc “Radar và trạm mưa nên kết hợp thế nào?”.</div></div></section>
+</main>
+<footer><div class="container footer-wrap"><span>© <span id="year"></span> Xuan-Hien Le</span><span>Góc Nghiên cứu · Water Science · Modelling · AI</span></div></footer>
+<script src="../script.js"></script>
+</body>
+</html>
