@@ -3,191 +3,125 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Trang học thuật của Lê Xuân Hiền — thủy văn, mô hình lũ, viễn thám, AI, bất định và hybrid modelling cho khoa học nước.">
+  <meta name="description" content="Trang học thuật của Lê Xuân Hiền — thủy văn, thủy lực, mô hình lũ, viễn thám, landslide, AI, bất định, hybrid và surrogate modelling cho khoa học nước.">
   <meta name="author" content="Lê Xuân Hiền">
   <meta name="theme-color" content="#12344d">
   <link rel="alternate" hreflang="vi" href="https://hienlx88.github.io/">
   <link rel="alternate" hreflang="en" href="https://hienlx88.github.io/en/">
   <link rel="alternate" hreflang="ko" href="https://hienlx88.github.io/ko/">
   <link rel="alternate" hreflang="ja" href="https://hienlx88.github.io/ja/">
-  <title>Lê Xuân Hiền | Thủy văn, Mô hình lũ & AI cho Khoa học Nước</title>
+  <title>Lê Xuân Hiền | Khoa học Nước · Mô hình · Dữ liệu · AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .atlas-note{display:flex;justify-content:space-between;gap:24px;align-items:center;margin:18px 0 26px;padding:16px 18px;border:1px solid var(--line);border-radius:16px;background:#fff}.atlas-note p{margin:0;color:var(--muted)}
+    .scope-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.scope-strip span{font-size:var(--text-xs);font-weight:800;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#48606b}.scope-strip .new{background:#f8f1fb;border-color:#ded1ec;color:#6e568f}.scope-strip .ongoing{background:#fff5e8;border-color:#edd8b7;color:#8b642c}
+    .portfolio-intro{max-width:900px}.portfolio-intro strong{color:var(--navy)}
+    .story-card .status{display:inline-block;margin:0 0 8px;padding:4px 8px;border-radius:999px;font-size:var(--text-xs);font-weight:800;background:#eef8f5;color:#237c70}.story-card .status.emerging{background:#fff3e7;color:#96612d}
+    .paper-links{display:flex;gap:12px;flex-wrap:wrap}.paper-links a{font-size:var(--text-sm);font-weight:800}
+    @media(max-width:900px){.atlas-note{display:block}.atlas-note .button{margin-top:12px}}
+  </style>
 </head>
 <body>
 <header class="site-header">
   <div class="container nav-wrap">
-    <a class="brand" href="#top">Lê Xuân Hiền<small>Thủy văn · Mô hình lũ · AI cho Khoa học Nước</small></a>
+    <a class="brand" href="#top">Lê Xuân Hiền<small>Thủy văn · Thủy lực · Viễn thám · AI</small></a>
     <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false">Menu</button>
     <nav class="nav" aria-label="Điều hướng chính">
-      <a href="#about">Bio</a>
-      <a href="#research">Nghiên cứu</a>
-      <a href="#stories">Câu chuyện</a>
-      <a href="#impact">Thành tựu</a>
-      <a href="#publications">Công bố</a>
-      <a href="#service">Học thuật</a>
-      <a href="#tips">Tips</a>
-      <a href="#contact">Liên hệ</a>
+      <a href="#about">Bio</a><a href="#research">Nghiên cứu</a><a href="#stories">Câu chuyện</a><a href="#impact">Thành tựu</a><a href="#publications">Công bố</a><a href="#service">Học thuật</a><a href="#tips">Tips</a><a href="#contact">Liên hệ</a>
     </nav>
-    <div class="langbar" aria-label="Ngôn ngữ">
-      <a class="active" href="./">🇻🇳 VI</a><a href="en/">🇬🇧 EN</a><a href="ko/">🇰🇷 KO</a><a href="ja/">🇯🇵 JA</a>
-    </div>
+    <div class="langbar" aria-label="Ngôn ngữ"><a class="active" href="./">🇻🇳 VI</a><a href="en/">🇬🇧 EN</a><a href="ko/">🇰🇷 KO</a><a href="ja/">🇯🇵 JA</a></div>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <p class="eyebrow">Hydrology · Flood Modelling · Remote Sensing · AI · Uncertainty</p>
-        <h1>Lê Xuân Hiền</h1>
-        <p class="hero-titleline">Nghiên cứu nước bằng cách kết nối vật lý, quan trắc và trí tuệ nhân tạo.</p>
-        <p class="hero-role">Giảng viên · Khoa Kỹ thuật Tài nguyên nước · Trường Đại học Thủy lợi, Hà Nội</p>
-        <p class="hero-copy">Tôi quan tâm đến một câu hỏi tưởng đơn giản nhưng hiếm khi có câu trả lời đơn giản: <strong>làm thế nào để mô hình hóa nước tốt hơn khi dữ liệu không hoàn hảo và bất định luôn tồn tại?</strong> Công việc của tôi trải từ dự báo dòng chảy bằng deep learning, hiệu chỉnh mưa vệ tinh và tích hợp radar–gauge đến mô phỏng ngập, Sentinel-1 SAR, uncertainty analysis và các hướng hybrid/surrogate modelling.</p>
-        <div class="actions">
-          <a class="button primary" href="#research">Xem bản đồ nghiên cứu</a>
-          <a class="button" href="https://scholar.google.com/citations?user=APNFD3cAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-          <a class="button" href="https://orcid.org/0000-0002-0947-0805" target="_blank" rel="noopener">ORCID</a>
-        </div>
-        <div class="profile-links">
-          <a href="https://www.researchgate.net/profile/Xuan-Hien-Le" target="_blank" rel="noopener">ResearchGate ↗</a>
-          <a href="https://researchmap.jp/lxhien88" target="_blank" rel="noopener">researchmap ↗</a>
-          <a href="https://github.com/hienlx88" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-        <div class="hero-note"><strong>Triết lý nghiên cứu:</strong> AI không cần “đánh bại” mô hình vật lý. Giá trị lớn hơn thường xuất hiện khi mỗi phương pháp làm đúng phần việc mà nó giỏi nhất.</div>
-        <div class="highlight-strip">
-          <div class="highlight"><strong>2× Editor’s Choice</strong><span>Remote Sensing · Water</span></div>
-          <div class="highlight"><strong>Guest Editor</strong><span>Springer Nature · IOP Publishing</span></div>
-          <div class="highlight"><strong>Việt Nam · Hàn Quốc · Nhật Bản</strong><span>Đào tạo và nghiên cứu quốc tế</span></div>
-        </div>
-      </div>
-      <aside class="profile-card" aria-label="Hồ sơ học thuật">
-        <img class="avatar" src="https://avatars.githubusercontent.com/u/33052537?v=4" alt="Ảnh hồ sơ Lê Xuân Hiền">
-        <div class="profile-card-body">
-          <div class="profile-label"><span class="status-dot"></span>Nghiên cứu tài nguyên nước</div>
-          <dl>
-            <div><dt>Thế mạnh</dt><dd>Hydrology · Hydraulics · Floods</dd></div>
-            <div><dt>Phương pháp</dt><dd>Remote sensing · ML/DL · Uncertainty</dd></div>
-            <div><dt>Hướng mở rộng</dt><dd>Hybrid · Surrogate · Decision support</dd></div>
-          </dl>
-        </div>
-      </aside>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Hydrology · Hydraulics · Remote Sensing · Artificial Intelligence</p>
+      <h1>Lê Xuân Hiền</h1>
+      <p class="hero-titleline">Khoa học Nước bằng mô hình, dữ liệu và AI</p>
+      <p class="hero-role">Giảng viên · Khoa Kỹ thuật Tài nguyên nước · Trường Đại học Thủy lợi, Hà Nội</p>
+      <p class="hero-copy">Tôi nghiên cứu cách kết hợp hiểu biết vật lý, dữ liệu quan trắc và trí tuệ nhân tạo để hiểu, dự báo và mô phỏng các quá trình liên quan đến nước — đặc biệt trong những bài toán mà dữ liệu không hoàn hảo và bất định không thể bỏ qua.</p>
+      <div class="actions"><a class="button primary" href="#research">Xem bản đồ nghiên cứu</a><a class="button" href="https://scholar.google.com/citations?user=APNFD3cAAAAJ" target="_blank" rel="noopener">Google Scholar</a><a class="button" href="https://orcid.org/0000-0002-0947-0805" target="_blank" rel="noopener">ORCID</a></div>
+      <div class="hero-note"><strong>Một câu hỏi xuyên suốt:</strong> mô hình có thể dự báo tốt đến đâu — và quan trọng hơn, chúng ta có thể tin kết quả đó đến mức nào?</div>
+      <div class="highlight-strip"><div class="highlight"><strong>2× Editor’s Choice</strong><span>Remote Sensing · Water</span></div><div class="highlight"><strong>Guest Editor</strong><span>Springer Nature · IOP Publishing</span></div><div class="highlight"><strong>VN · KR · JP</strong><span>Hành trình nghiên cứu quốc tế</span></div></div>
     </div>
-  </section>
+    <aside class="profile-card"><img class="avatar" src="https://avatars.githubusercontent.com/u/33052537?v=4" alt="Lê Xuân Hiền"><div class="profile-card-body"><div class="profile-label"><span class="status-dot"></span>Nghiên cứu Khoa học Nước</div><dl><div><dt>Trọng tâm</dt><dd>Hydrology · Hydraulics · Floods · Remote Sensing</dd></div><div><dt>Phương pháp</dt><dd>ML/DL · Uncertainty · Hybrid · Surrogate</dd></div><div><dt>Hồ sơ quốc tế</dt><dd>Vietnam · South Korea · Japan</dd></div></dl></div></aside>
+  </div>
+</section>
 
-  <section id="about" class="section">
-    <div class="container about-grid reveal">
-      <div>
-        <p class="section-kicker">Academic Bio</p>
-        <h2>Từ thủy lực truyền thống đến AI cho khoa học nước.</h2>
-        <p class="lead"><strong>Lê Xuân Hiền</strong> là giảng viên tại Bộ môn Thủy lực, Khoa Kỹ thuật Tài nguyên nước, Trường Đại học Thủy lợi. Anh nhận bằng Tiến sĩ tại Đại học Quốc gia Kyungpook, Hàn Quốc năm 2020, tiếp tục nghiên cứu sau tiến sĩ tại đây, và giai đoạn 2024–2026 làm Phó Giáo sư tại Viện Nghiên cứu và Phát triển, Đại học Chuo, Nhật Bản.</p>
-        <p>Hướng nghiên cứu chính nằm ở giao điểm giữa thủy văn, thủy lực, phòng chống thiên tai, viễn thám và khoa học dữ liệu. Một mạch xuyên suốt trong các công trình là <strong>độ tin cậy của thông tin</strong>: mưa đo được có đủ tốt không, mô hình ngập nhạy đến mức nào với địa hình, AI dự báo tốt nhưng bất định ra sao, và liệu mô hình có thể đủ nhanh để hỗ trợ ra quyết định thực tế hay không.</p>
-        <p>Vì vậy, thay vì xem physical modelling và machine learning như hai lựa chọn đối lập, tôi quan tâm nhiều hơn đến cách kết hợp chúng: dùng dữ liệu để sửa những phần vật lý chưa biết đủ rõ, dùng vật lý để ràng buộc những gì AI không nên tự do suy diễn, và dùng uncertainty analysis để biết khi nào không nên quá tin vào một con số đẹp.</p>
-      </div>
-      <aside class="about-note"><strong>Một câu để nhớ</strong>Độ chính xác là cần thiết. Nhưng trong water science, hiểu <em>vì sao</em> mô hình đúng, <em>khi nào</em> nó có thể sai và <em>mất bao lâu</em> để chạy đôi khi quan trọng không kém.</aside>
+<section id="about" class="section">
+  <div class="container about-grid">
+    <div>
+      <p class="section-kicker">Academic Bio</p>
+      <h2>Từ dự báo lũ bằng deep learning đến mô hình hóa nước có xét bất định.</h2>
+      <p class="lead">Lê Xuân Hiền là giảng viên tại Khoa Kỹ thuật Tài nguyên nước, Trường Đại học Thủy lợi. Anh được đào tạo Tiến sĩ tại Đại học Quốc gia Kyungpook, Hàn Quốc, tiếp tục nghiên cứu sau tiến sĩ tại đây và sau đó làm việc tại Research and Development Initiative, Chuo University, Nhật Bản.</p>
+      <p>Nghiên cứu của anh nằm ở giao điểm giữa <strong>thủy văn, thủy lực, viễn thám và khoa học dữ liệu</strong>. Chuỗi công trình đã phát triển từ dự báo dòng chảy/mực nước, mưa vệ tinh và radar, mô phỏng ngập, scour và công trình thủy lực, đến landslide susceptibility, Sentinel-1 SAR, uncertainty/XAI và các khung tích hợp physics–data.</p>
+      <p>Mục tiêu không chỉ là đạt một metric tốt hơn, mà là xây dựng các phương pháp <strong>đáng tin cậy, có khả năng giải thích và có giá trị ứng dụng</strong> trong quản lý tài nguyên nước và giảm nhẹ rủi ro thiên tai.</p>
+      <div class="scope-strip"><span>Flood forecasting</span><span>Rainfall & radar</span><span>Flood inundation</span><span>Hydraulic structures</span><span>Landslide ML/XAI</span><span>Sentinel-1 SAR</span><span>Uncertainty</span><span class="new">Hybrid</span><span class="new">Surrogate</span></div>
     </div>
-  </section>
+    <aside class="about-note"><strong>Research identity</strong>Quan trắc và dữ liệu → mô hình → định lượng bất định → dự báo/mô phỏng → hỗ trợ quyết định. AI được dùng như một công cụ bổ trợ cho hiểu biết vật lý, không phải một “hộp đen thay thế mọi thứ”.</aside>
+  </div>
+</section>
 
-  <section id="research" class="section alt">
-    <div class="container">
-      <div class="section-heading reveal"><div><p class="section-kicker">Research Identity</p><h2>Bản đồ nghiên cứu</h2></div><p>Người làm chuyên môn có thể nhìn nhanh chuỗi nghiên cứu; người ngoài ngành có thể thấy dòng chảy logic từ dữ liệu mưa đến quyết định quản lý nước.</p></div>
-      <figure class="research-map reveal"><img src="assets/research-map.svg" alt="Bản đồ nghiên cứu của Lê Xuân Hiền"></figure>
-      <div class="cards reveal" style="margin-top:22px">
-        <article class="card"><div class="card-number">01 · FLOOD & HYDROLOGY</div><h3>Dự báo thủy văn</h3><p>Dòng chảy, mực nước, flood forecasting, multi-step prediction và đánh giá reliability của các mô hình deep learning.</p><div class="tags"><span>LSTM</span><span>GRU</span><span>TCN</span><span>Forecasting</span></div></article>
-        <article class="card"><div class="card-number">02 · HYDRAULICS</div><h3>Mô phỏng lũ & ngập</h3><p>Rainfall–runoff–inundation, floodplain sensitivity, DEM/elevation bias và cách bất định địa hình lan truyền vào bản đồ ngập.</p><div class="tags"><span>RRI</span><span>DEM</span><span>Flood depth</span></div></article>
-        <article class="card"><div class="card-number">03 · EARTH OBSERVATION</div><h3>Mưa & viễn thám</h3><p>Satellite precipitation, weather radar, radar–gauge merging và Sentinel-1 SAR cho theo dõi phạm vi và độ sâu ngập.</p><div class="tags"><span>Radar</span><span>Satellite</span><span>Sentinel-1</span></div></article>
-        <article class="card"><div class="card-number">04 · AI & UNCERTAINTY</div><h3>AI đáng tin cậy</h3><p>Không chỉ hỏi mô hình nào tốt nhất, mà còn hỏi mô hình chắc chắn đến đâu, biến nào quan trọng và kết quả có giải thích được không.</p><div class="tags"><span>ML/DL</span><span>XAI</span><span>Monte Carlo</span></div></article>
-        <article class="card"><div class="card-number">05 · HYBRID MODELLING</div><h3>Physics + Data</h3><p>Kết hợp mô hình vật lý, dữ liệu quan trắc và mô hình học máy để tận dụng domain knowledge mà vẫn học được các pattern phức tạp.</p><div class="tags"><span>Hybrid</span><span>Physics-guided</span><span>Data assimilation</span></div></article>
-        <article class="card"><div class="card-number">06 · EMERGING DIRECTION</div><h3>Surrogate modelling</h3><p>Hướng mở rộng cho những bài toán mà mô hình high-fidelity quá chậm để chạy real-time, optimization hoặc hàng nghìn kịch bản.</p><div class="tags"><span>Surrogate</span><span>ROM</span><span>Fast prediction</span></div></article>
-      </div>
-      <div class="focus-grid reveal">
-        <article class="focus-card"><img src="assets/hybrid-water-intelligence.svg" alt="Minh họa hybrid modelling"><div class="body"><h3>Hybrid modelling: thay vì chọn một bên</h3><p>Physics mang lại cấu trúc và ràng buộc; quan trắc mang lại bằng chứng; AI giúp học phần còn thiếu. Vấn đề thú vị không phải bên nào thắng, mà là thiết kế điểm nối giữa ba thành phần.</p><a href="#stories">Đọc câu chuyện về Hybrid Modelling →</a></div></article>
-        <article class="focus-card"><img src="assets/surrogate-modelling.svg" alt="Minh họa surrogate modelling"><div class="body"><h3>Surrogate modelling: khi tốc độ trở thành một biến khoa học</h3><p>Một mô hình thủy lực tốt nhưng mất vài giờ cho mỗi kịch bản sẽ rất khó dùng cho real-time support. Surrogate học cách xấp xỉ mô hình gốc trong miền đã được kiểm chứng.</p><a href="#stories">Đọc câu chuyện về Surrogate →</a></div></article>
-      </div>
-    </div>
-  </section>
+<section id="research" class="section alt">
+  <div class="container">
+    <p class="section-kicker">Research Portfolio</p>
+    <div class="section-heading"><div class="portfolio-intro"><h2>Bản đồ tổng thể các hướng nghiên cứu</h2><p>Đây là hình trung tâm của website: tổng hợp các cụm chủ đề đã có công bố, các nhánh đang phát triển và những hướng mới có tiềm năng kết nối thành một hệ nghiên cứu thống nhất.</p></div></div>
+    <div class="research-map"><img src="assets/research-atlas-vi.svg" alt="Bản đồ tổng thể hướng nghiên cứu của Lê Xuân Hiền"></div>
+    <div class="atlas-note"><p><strong>Màu xanh/teal:</strong> các trục đã có chuỗi công bố rõ. <strong>Remote sensing quang học cho sediment ở Urakami/Valencia</strong> và <strong>surrogate modelling</strong> được ghi rõ là hướng đang phát triển/mở rộng, không trình bày như thành quả đã xuất bản.</p><a class="button" href="https://scholar.google.com/citations?user=APNFD3cAAAAJ" target="_blank" rel="noopener">Đối chiếu Google Scholar</a></div>
 
-  <section id="stories" class="section rose">
-    <div class="container">
-      <div class="section-heading reveal"><div><p class="section-kicker">Câu chuyện từ nghiên cứu</p><h2>Khoa học không nhất thiết phải khô.</h2></div><p>Những bài viết ngắn dùng một câu hỏi cụ thể để giải thích một vấn đề khoa học sâu hơn — đủ dễ đọc cho người ngoài ngành nhưng không bỏ qua bản chất kỹ thuật.</p></div>
-      <div class="story-grid">
-        <article class="story-card reveal"><img src="https://mdpi-res.com/d_attachment/remotesensing/remotesensing-12-02731/article_deploy/html/images/remotesensing-12-02731-g012.png" alt="Bản đồ mưa trên lưu vực Mekong"><div class="body"><div class="story-label">Story 01 · Rainfall</div><h3>Một bản đồ mưa “đẹp” chưa chắc là một bản đồ mưa “đúng”</h3><p>RMSE trung bình tốt có thể che giấu một trường mưa sai về vị trí, gradient hoặc vùng cực trị. Với hydrological modelling, sai ở đâu đôi khi quan trọng ngang với sai bao nhiêu.</p><a href="https://www.mdpi.com/2072-4292/12/17/2731" target="_blank" rel="noopener">Đọc Editor’s Choice paper →</a></div></article>
-        <article class="story-card reveal"><img src="assets/research-map.svg" alt="Minh họa chuỗi mô hình lũ"><div class="body"><div class="story-label">Story 02 · Flood modelling</div><h3>Một sai lệch cao độ nhỏ có thể thay đổi bản đồ ngập đến đâu?</h3><p>DEM không phải một lớp nền vô tội. Elevation bias có thể thay đổi đường truyền nước, mực nước và vùng ngập — từ đó thay đổi cả cách chúng ta diễn giải rủi ro.</p><a href="https://doi.org/10.1016/j.jhydrol.2025.134832" target="_blank" rel="noopener">Đọc Journal of Hydrology paper →</a></div></article>
-        <article class="story-card reveal"><img src="assets/hybrid-water-intelligence.svg" alt="Hybrid water intelligence"><div class="body"><div class="story-label">Story 03 · Hybrid</div><h3>Physics hay AI? Có lẽ câu hỏi đúng là: tại sao không dùng cả hai?</h3><p>Mô hình vật lý biết điều gì “không được phép xảy ra”; AI lại rất giỏi học pattern mà chúng ta chưa mô tả hết bằng phương trình. Hybrid modelling khai thác đúng sự bổ sung này.</p><a href="https://doi.org/10.1016/j.jhydrol.2024.130762" target="_blank" rel="noopener">Một ví dụ: AI cải thiện mưa đầu vào cho rainfall–runoff modelling →</a></div></article>
-        <article class="story-card reveal"><img src="assets/surrogate-modelling.svg" alt="Surrogate modelling"><div class="body"><div class="story-label">Story 04 · Surrogate</div><h3>Nếu mô hình chạy 3 giờ, AI có thể giúp trả lời trong vài giây không?</h3><p>Có thể — nếu surrogate được huấn luyện và kiểm chứng đúng miền. Nhưng tốc độ không miễn phí: phải theo dõi extrapolation, uncertainty và sai số so với high-fidelity model.</p><a href="#tips">Xem checklist cho surrogate modelling →</a></div></article>
-        <article class="story-card reveal"><img src="https://mdpi-res.com/d_attachment/remotesensing/remotesensing-12-02731/article_deploy/html/images/remotesensing-12-02731-g006.png" alt="Mạng ConvAE"><div class="body"><div class="story-label">Story 05 · AI reliability</div><h3>AI dự báo tốt — nhưng nó có biết khi nào mình không chắc?</h3><p>Một metric cao chưa phải giấy chứng nhận đáng tin. Monte Carlo dropout, ensemble và event-wise validation giúp chuyển từ “best score” sang “reliable prediction”.</p><a href="https://doi.org/10.1016/j.ejrh.2025.102668" target="_blank" rel="noopener">Đọc nghiên cứu uncertainty 2025 →</a></div></article>
-        <article class="story-card reveal"><img src="assets/research-map.svg" alt="Minh họa Sentinel-1 và flood mapping"><div class="body"><div class="story-label">Story 06 · Remote sensing</div><h3>Khi mây che kín mùa lũ, radar vẫn nhìn thấy gì?</h3><p>Sentinel-1 SAR quan sát xuyên mây và ban đêm, rất hữu ích ở vùng nhiệt đới. Nhưng chuyển từ “vùng nước” sang “độ sâu ngập” vẫn cần địa hình, calibration và kiểm soát uncertainty.</p><a href="https://doi.org/10.1088/2515-7620/ae88de" target="_blank" rel="noopener">Đọc nghiên cứu Sentinel-1 2026 →</a></div></article>
-      </div>
+    <div class="cards">
+      <article class="card"><div class="card-number">01 · HYDROLOGY</div><h3>Dự báo thủy văn & dòng chảy</h3><p>Flood/streamflow/water-level forecasting, event-scale prediction, rainfall–runoff modelling và các bài toán vận hành liên quan đến hồ, cống và hệ thống nước.</p><div class="tags"><span>LSTM</span><span>GRU</span><span>DNN</span><span>TCN</span></div></article>
+      <article class="card"><div class="card-number">02 · RAINFALL & EO</div><h3>Mưa, radar & viễn thám</h3><p>Mưa vệ tinh, bias correction, gridded precipitation reconstruction, radar–gauge merging, Sentinel-1 SAR và các hướng optical remote sensing cho sediment/water colour.</p><div class="tags"><span>Satellite rainfall</span><span>Radar</span><span>SAR</span><span>Optical RS</span></div></article>
+      <article class="card"><div class="card-number">03 · FLOOD MODELLING</div><h3>Ngập lụt & hydro-hydraulic modelling</h3><p>Rainfall–runoff–inundation, DEM/topographic uncertainty, flood extent/depth và độ nhạy không gian của kết quả mô phỏng lũ.</p><div class="tags"><span>RRI</span><span>DEM</span><span>Flood depth</span></div></article>
+      <article class="card"><div class="card-number">04 · HYDRAULICS</div><h3>Thủy lực, công trình & bùn cát</h3><p>Dòng nghiên cứu hợp tác về scour tại cửa van/cống, hệ số lưu lượng của công trình lấy nước và tràn, cùng các khung kết hợp mô hình vật lý, số và machine learning.</p><div class="tags"><span>Scour</span><span>Discharge coefficient</span><span>Bedload</span></div></article>
+      <article class="card"><div class="card-number">05 · GEOHAZARDS</div><h3>Landslide & geospatial AI</h3><p>Hai nghiên cứu liên tiếp về landslide susceptibility mapping: từ so sánh các thuật toán ML độ phân giải cao đến feature selection, XAI và uncertainty.</p><div class="tags"><span>RF</span><span>XGBoost</span><span>XAI</span><span>Uncertainty</span></div></article>
+      <article class="card"><div class="card-number">06 · CROSS-CUTTING</div><h3>AI, bất định, hybrid & surrogate</h3><p>Đây là lớp phương pháp xuyên suốt: từ deep learning và ensemble đến physics–data integration, explainability và surrogate/reduced-order modelling cho bài toán mô phỏng tốn chi phí tính toán.</p><div class="tags"><span>Hybrid</span><span>Surrogate</span><span>UQ</span><span>XAI</span></div></article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="impact" class="section sand">
-    <div class="container">
-      <div class="section-heading reveal"><div><p class="section-kicker">Recognition & Impact</p><h2>Không chỉ là badge — mỗi ghi nhận nên có một câu chuyện.</h2></div><p>Các liên kết dưới đây dẫn trực tiếp tới bài báo, video abstract hoặc collection để người đọc có thể kiểm chứng và tìm hiểu sâu hơn.</p></div>
-      <div class="achievements">
-        <article class="achievement reveal"><div class="achievement-icon">EC</div><div><div class="meta">Editor’s Choice · Remote Sensing · 2020</div><h3>Satellite precipitation bias correction with CNN</h3><p>Một nghiên cứu quan trọng trong chuỗi công việc về deep learning và precipitation, dùng convolutional neural network để hiệu chỉnh sai lệch không–thời gian của mưa vệ tinh.</p><div class="achievement-links"><a href="https://www.mdpi.com/2072-4292/12/17/2731" target="_blank" rel="noopener">Bài báo →</a></div></div></article>
-        <article class="achievement reveal"><div class="achievement-icon">EC</div><div><div class="meta">Editor’s Choice · Water · 2024</div><h3>Predictive uncertainty & feature selection</h3><p>Nghiên cứu chuyển câu hỏi từ “mô hình nào có score cao nhất?” sang “mô hình chắc chắn đến đâu và biến nào thực sự quyết định kết quả?”.</p><div class="achievement-links"><a href="https://www.mdpi.com/2073-4441/16/14/1945" target="_blank" rel="noopener">Bài báo →</a><a href="https://encyclopedia.pub/video/1846" target="_blank" rel="noopener">Video abstract →</a></div></div></article>
-        <article class="achievement reveal"><div class="achievement-icon">↑</div><div><div class="meta">Citation impact · Water</div><h3>LSTM flood forecasting — most-cited recognition</h3><p>Bài năm 2019 về LSTM flood forecasting trở thành một tài liệu được trích dẫn rộng rãi trong cộng đồng hydrological forecasting và được <em>Water</em> liệt kê trong nhóm bài có mức trích dẫn nổi bật.</p><div class="achievement-links"><a href="https://www.mdpi.com/2073-4441/11/7/1387" target="_blank" rel="noopener">Bài báo →</a><a href="https://www.mdpi.com/journal/water/most_cited" target="_blank" rel="noopener">Water most-cited papers →</a></div></div></article>
-        <article class="achievement reveal"><div class="achievement-icon">JP</div><div><div class="meta">International appointment · 2024–2026</div><h3>Associate Professor · Chuo University</h3><p>Giai đoạn nghiên cứu tại Real-time Flood Prediction R&D Unit, Research and Development Initiative, giúp mở rộng mạnh hướng flood modelling, radar rainfall và data-driven water science.</p><div class="achievement-links"><a href="https://researchmap.jp/lxhien88" target="_blank" rel="noopener">Academic profile →</a></div></div></article>
-      </div>
+<section id="stories" class="section rose">
+  <div class="container"><p class="section-kicker">Câu chuyện từ nghiên cứu</p><div class="section-heading"><h2>Những câu hỏi khoa học phía sau các mô hình</h2><p>Không chỉ “đã làm gì”, mà là vì sao bài toán đó đáng nghiên cứu và nó kết nối với bức tranh lớn của Khoa học Nước như thế nào.</p></div>
+    <div class="story-grid">
+      <article class="story-card"><img src="https://mdpi-res.com/d_attachment/remotesensing/remotesensing-12-02731/article_deploy/html/images/remotesensing-12-02731-g012.png" alt="Mưa không gian"><div class="body"><span class="status">Đã công bố</span><h3>Một bản đồ mưa đẹp chưa chắc là một bản đồ mưa đúng</h3><p>RMSE tốt ở một vài trạm chưa bảo đảm trường mưa giữ đúng cấu trúc không gian. Đây là lý do bias correction và radar–gauge merging phải được đánh giá cả theo không gian.</p><a href="https://doi.org/10.3390/rs12172731" target="_blank" rel="noopener">Editor’s Choice paper ↗</a></div></article>
+      <article class="story-card"><img src="assets/hybrid-water-intelligence.svg" alt="Hybrid modelling"><div class="body"><span class="status">Đang phát triển</span><h3>Physics hay AI? Có lẽ câu hỏi đúng là: tại sao không dùng cả hai?</h3><p>Hybrid modelling không đặt mô hình vật lý và AI ở hai phía đối lập. Mục tiêu là giữ ràng buộc khoa học trong khi tận dụng khả năng học pattern và hiệu chỉnh từ dữ liệu.</p></div></article>
+      <article class="story-card"><img src="assets/surrogate-modelling.svg" alt="Surrogate modelling"><div class="body"><span class="status emerging">Hướng mới</span><h3>Nếu mô hình thủy lực chạy hàng giờ, có thể tạo một “bản thay thế” chạy trong vài giây?</h3><p>Surrogate models học từ high-fidelity simulations để hỗ trợ scenario analysis, optimization và near-real-time decision support — nhưng chỉ đáng tin trong miền đã được kiểm chứng.</p></div></article>
+      <article class="story-card"><img src="assets/research-atlas-vi.svg" alt="Landslide machine learning"><div class="body"><span class="status">Đã công bố</span><h3>Landslide: từ “mô hình nào tốt nhất?” đến “vì sao mô hình dự báo như vậy?”</h3><p>Hai nghiên cứu 2023–2024 chuyển từ high-resolution susceptibility mapping sang feature selection, explainable AI và uncertainty — một bước từ performance sang reliability.</p><div class="paper-links"><a href="https://doi.org/10.3389/feart.2023.1268501" target="_blank" rel="noopener">2023 paper ↗</a><a href="https://doi.org/10.3389/fenvs.2024.1424988" target="_blank" rel="noopener">2024 XAI paper ↗</a></div></div></article>
+      <article class="story-card"><img src="assets/research-atlas-vi.svg" alt="Hydraulic structures research"><div class="body"><span class="status">Đã công bố</span><h3>Thủy lực công trình: khi công thức kinh nghiệm gặp numerical model và machine learning</h3><p>Các nghiên cứu về scour depth, intake structures và spillways tạo một nhánh thủy lực ứng dụng rõ ràng — nơi dữ liệu, mô hình vật lý và ML có thể bổ trợ lẫn nhau.</p><div class="paper-links"><a href="https://doi.org/10.2166/hydro.2024.297" target="_blank" rel="noopener">Scour uncertainty ↗</a><a href="https://doi.org/10.2478/johh-2025-0004" target="_blank" rel="noopener">Scour + ML ↗</a></div></div></article>
+      <article class="story-card"><img src="assets/research-atlas-vi.svg" alt="Optical remote sensing for sediment"><div class="body"><span class="status emerging">Đang nghiên cứu</span><h3>Từ nhìn thấy màu nước đến suy luận sediment bằng viễn thám quang học</h3><p>Hướng Urakami và Valencia mở rộng remote sensing từ rainfall/flood sang sediment và water colour: một nhánh chưa xuất bản nhưng phù hợp tự nhiên với nền tảng Earth Observation hiện có.</p></div></article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="publications" class="section alt">
-    <div class="container">
-      <div class="section-heading reveal"><div><p class="section-kicker">Selected Publications</p><h2>Một research trajectory, không chỉ một danh sách.</h2></div><p>Từ forecasting → precipitation correction → uncertainty → flood modelling → Earth observation. Danh sách đầy đủ được duy trì trên Google Scholar.</p></div>
-      <div class="pub-list">
-        <article class="publication reveal"><div class="pub-year">2026</div><div><h3>Impacts of Elevation Bias and Topographic Uncertainty on Flood Modeling</h3><p><strong>Xuan-Hien Le</strong>, Naoki Koyama, Tadashi Yamada · <em>Journal of Hydrology</em>, 666, 134832.</p><a href="https://doi.org/10.1016/j.jhydrol.2025.134832" target="_blank" rel="noopener">DOI →</a></div></article>
-        <article class="publication reveal"><div class="pub-year">2026</div><div><h3>An uncertainty-aware framework for flood extent and depth mapping from Sentinel-1 SAR</h3><p>X.K. Do, <strong>Xuan-Hien Le</strong> · <em>Environmental Research Communications</em>, 8(7).</p><a href="https://doi.org/10.1088/2515-7620/ae88de" target="_blank" rel="noopener">DOI →</a></div></article>
-        <article class="publication reveal"><div class="pub-year">2025</div><div><h3>Performance and uncertainty analysis in deep learning frameworks for streamflow forecasting</h3><p><strong>Xuan-Hien Le</strong>, Doan Van Binh, Giha Lee · <em>Journal of Hydrology: Regional Studies</em>, 61, 102668.</p><a href="https://doi.org/10.1016/j.ejrh.2025.102668" target="_blank" rel="noopener">DOI →</a></div></article>
-        <article class="publication reveal"><div class="pub-year">2025</div><div><h3>Evaluating Geostatistical and Statistical Merging Methods for Radar–Gauge Rainfall Integration</h3><p><strong>Xuan-Hien Le</strong> et al. · <em>Remote Sensing</em>, 17(15), 2622.</p><a href="https://doi.org/10.3390/rs17152622" target="_blank" rel="noopener">DOI →</a></div></article>
-        <article class="publication reveal"><div class="pub-year">2024</div><div><h3>Improving rainfall-runoff modeling in the Mekong river basin using bias-corrected satellite precipitation products by CNNs</h3><p><strong>Xuan-Hien Le</strong> et al. · <em>Journal of Hydrology</em>, 630, 130762.</p><a href="https://doi.org/10.1016/j.jhydrol.2024.130762" target="_blank" rel="noopener">DOI →</a></div></article>
-        <article class="publication reveal"><div class="pub-year">2024</div><div><h3>Quantifying Predictive Uncertainty and Feature Selection in River Bed Load Estimation <span class="badge">Editor’s Choice</span></h3><p><strong>Xuan-Hien Le</strong> et al. · <em>Water</em>, 16(14), 1945.</p><a href="https://doi.org/10.3390/w16141945" target="_blank" rel="noopener">DOI →</a></div></article>
-        <article class="publication reveal"><div class="pub-year">2020</div><div><h3>Application of Convolutional Neural Network for Spatiotemporal Bias Correction of Daily Satellite-Based Precipitation <span class="badge">Editor’s Choice</span></h3><p><strong>Xuan-Hien Le</strong> et al. · <em>Remote Sensing</em>, 12(17), 2731.</p><a href="https://doi.org/10.3390/rs12172731" target="_blank" rel="noopener">DOI →</a></div></article>
-        <article class="publication reveal"><div class="pub-year">2019</div><div><h3>Application of Long Short-Term Memory (LSTM) Neural Network for Flood Forecasting <span class="badge">High impact</span></h3><p><strong>Xuan-Hien Le</strong>, Hung Viet Ho, Giha Lee, Sungho Jung · <em>Water</em>, 11(7), 1387.</p><a href="https://doi.org/10.3390/w11071387" target="_blank" rel="noopener">DOI →</a></div></article>
-      </div>
-      <div class="center"><a class="button primary" href="https://scholar.google.com/citations?user=APNFD3cAAAAJ" target="_blank" rel="noopener">Xem toàn bộ trên Google Scholar</a></div>
-    </div>
-  </section>
+<section id="impact" class="section sand"><div class="container"><p class="section-kicker">Recognition & Impact</p><div class="section-heading"><h2>Những dấu mốc có ý nghĩa</h2><p>Mỗi ghi nhận đều được liên kết tới nguồn hoặc bài báo tương ứng để người đọc có thể kiểm chứng nhanh.</p></div><div class="achievements">
+  <article class="achievement"><div class="achievement-icon">EC</div><div><div class="meta">Editor’s Choice · Remote Sensing · 2020</div><h3>Satellite precipitation bias correction</h3><p>CNN/ConvAE cho hiệu chỉnh sai lệch không–thời gian của mưa vệ tinh — một mốc sớm trong chuỗi nghiên cứu precipitation + deep learning.</p><div class="achievement-links"><a href="https://www.mdpi.com/2072-4292/12/17/2731" target="_blank" rel="noopener">Đọc bài ↗</a></div></div></article>
+  <article class="achievement"><div class="achievement-icon">EC</div><div><div class="meta">Editor’s Choice · Water · 2024</div><h3>Uncertainty & feature selection in bed-load estimation</h3><p>Nghiên cứu đi từ câu hỏi “mô hình nào tốt?” sang “mô hình chắc chắn đến đâu và biến nào thực sự quan trọng?”.</p><div class="achievement-links"><a href="https://www.mdpi.com/2073-4441/16/14/1945" target="_blank" rel="noopener">Đọc bài ↗</a><a href="https://encyclopedia.pub/video/1846" target="_blank" rel="noopener">Video abstract ↗</a></div></div></article>
+  <article class="achievement"><div class="achievement-icon">↑</div><div><div class="meta">Most-cited recognition · Water</div><h3>LSTM flood forecasting</h3><p>Bài năm 2019 trở thành một tài liệu tham khảo được trích dẫn rộng rãi trong hydrological deep learning và được Water liệt kê trong nhóm most-cited papers.</p><div class="achievement-links"><a href="https://www.mdpi.com/2073-4441/11/7/1387" target="_blank" rel="noopener">Đọc bài ↗</a><a href="https://www.mdpi.com/journal/water/most_cited" target="_blank" rel="noopener">Water most cited ↗</a></div></div></article>
+  <article class="achievement"><div class="achievement-icon">JP</div><div><div class="meta">International appointment · 2024–2026</div><h3>Associate Professor · Chuo University</h3><p>Real-time Flood Prediction R&D Unit, Research and Development Initiative — một giai đoạn mở rộng từ forecasting sang flood modelling, rainfall integration và uncertainty.</p><div class="achievement-links"><a href="https://hydlab-chuo.jimdofree.com/%E3%83%A1%E3%83%B3%E3%83%90%E3%83%BC/le-xuan-hien/" target="_blank" rel="noopener">Chuo profile ↗</a></div></div></article>
+</div></div></section>
 
-  <section id="service" class="section mint">
-    <div class="container">
-      <div class="section-heading reveal"><div><p class="section-kicker">Academic Service</p><h2>Guest Editor & kết nối cộng đồng nghiên cứu</h2></div><p>Hai collection quốc tế là nơi tôi muốn kết nối các nghiên cứu về monitoring, modelling, remote sensing và data-driven water science.</p></div>
-      <div class="editorial-row">
-        <article class="editorial-box reveal"><div class="meta">Springer Nature · Applied Water Science</div><h3>Machine Learning and Data-Driven Approaches for Hydrology and Water Resource Management</h3><p>Collection tập trung vào ML, hybrid AI–physics, remote sensing, smart monitoring và decision support trong hydrology và water resources.</p><a href="https://link.springer.com/collections/ajaaacbbhe" target="_blank" rel="noopener">Mở collection →</a></article>
-        <article class="editorial-box reveal"><div class="meta">IOP Publishing · Environmental Research Communications</div><h3>Monitoring and Modelling of Water Resources</h3><p>Focus Collection về monitoring, modelling, remote sensing, data science và các phương pháp mới hỗ trợ hiểu và quản lý tài nguyên nước.</p><a href="https://iopscience.iop.org/collections/erc-260210-1057" target="_blank" rel="noopener">Mở Focus Collection →</a></article>
-      </div>
-    </div>
-  </section>
+<section id="publications" class="section alt"><div class="container"><p class="section-kicker">Selected Publications</p><div class="section-heading"><h2>Dấu chân công bố theo chủ đề</h2><p>Không cố liệt kê toàn bộ trên homepage; thay vào đó chọn các bài giúp người đọc nhìn thấy sự mở rộng của research portfolio.</p></div><div class="pub-list">
+  <article class="publication"><div class="pub-year">2026</div><div><h3>Impacts of elevation bias and topographic uncertainty on flood modeling</h3><p><strong>Xuan-Hien Le</strong>, Naoki Koyama, Tadashi Yamada · <em>Journal of Hydrology</em>.</p><a href="https://doi.org/10.1016/j.jhydrol.2025.134832" target="_blank" rel="noopener">Flood modelling / DEM uncertainty ↗</a></div></article>
+  <article class="publication"><div class="pub-year">2025</div><div><h3>Evaluating Geostatistical and Statistical Merging Methods for Radar–Gauge Rainfall Integration</h3><p><strong>Xuan-Hien Le</strong> et al. · <em>Remote Sensing</em>.</p><a href="https://doi.org/10.3390/rs17152622" target="_blank" rel="noopener">Radar–gauge rainfall ↗</a></div></article>
+  <article class="publication"><div class="pub-year">2025</div><div><h3>Performance and uncertainty analysis in deep learning frameworks for streamflow forecasting</h3><p><strong>Xuan-Hien Le</strong>, Doan Van Binh, Giha Lee · <em>Journal of Hydrology: Regional Studies</em>.</p><a href="https://doi.org/10.1016/j.ejrh.2025.102668" target="_blank" rel="noopener">Forecasting uncertainty ↗</a></div></article>
+  <article class="publication"><div class="pub-year">2025</div><div><h3>Integrating machine learning and empirical approaches for scour depth estimation at sluice gates</h3><p><strong>Xuan-Hien Le</strong>, Le Thi Thu Hien · <em>Journal of Hydrology and Hydromechanics</em>.</p><a href="https://doi.org/10.2478/johh-2025-0004" target="_blank" rel="noopener">Hydraulics / scour ↗</a></div></article>
+  <article class="publication"><div class="pub-year">2024</div><div><h3>Quantitative evaluation of uncertainty and interpretability in ML-based landslide susceptibility mapping</h3><p><strong>Xuan-Hien Le</strong> et al. · <em>Frontiers in Environmental Science</em>.</p><a href="https://doi.org/10.3389/fenvs.2024.1424988" target="_blank" rel="noopener">Landslide / XAI ↗</a></div></article>
+  <article class="publication"><div class="pub-year">2023</div><div><h3>Machine learning for high-resolution landslide susceptibility mapping</h3><p><strong>Xuan-Hien Le</strong> et al. · <em>Frontiers in Earth Science</em>.</p><a href="https://doi.org/10.3389/feart.2023.1268501" target="_blank" rel="noopener">Landslide / ML ↗</a></div></article>
+  <article class="publication"><div class="pub-year">2020</div><div><h3>Application of CNN for spatiotemporal bias correction of daily satellite-based precipitation <span class="badge">Editor’s Choice</span></h3><p><strong>Xuan-Hien Le</strong> et al. · <em>Remote Sensing</em>.</p><a href="https://doi.org/10.3390/rs12172731" target="_blank" rel="noopener">Satellite precipitation ↗</a></div></article>
+  <article class="publication"><div class="pub-year">2019</div><div><h3>Application of LSTM Neural Network for Flood Forecasting <span class="badge">Most cited</span></h3><p><strong>Xuan-Hien Le</strong> et al. · <em>Water</em>.</p><a href="https://doi.org/10.3390/w11071387" target="_blank" rel="noopener">Flood forecasting ↗</a></div></article>
+</div><div class="center"><a class="button primary" href="https://scholar.google.com/citations?user=APNFD3cAAAAJ" target="_blank" rel="noopener">Xem toàn bộ trên Google Scholar</a></div></div></section>
 
-  <section id="tips" class="section">
-    <div class="container">
-      <div class="section-heading reveal"><div><p class="section-kicker">Research Tips</p><h2>Những điều nhỏ nhưng có thể làm thay đổi một nghiên cứu.</h2></div><p>Không phải “mẹo để có paper nhanh”. Đây là các checklist thực hành để tránh một số kết luận đẹp nhưng mong manh.</p></div>
-      <div class="tip-row">
-        <article class="tip-box reveal"><h3>Forecasting: đừng để một metric kể toàn bộ câu chuyện</h3><p>Đọc song song NSE/R² với bias, peak magnitude, peak timing, event-wise performance và khả năng tổng quát hóa giữa các năm.</p></article>
-        <article class="tip-box reveal"><h3>Hybrid modelling: xác định rõ AI đang sửa phần nào</h3><p>AI có thể sửa input, parameter, residual hoặc output. Nếu vai trò không rõ, “hybrid” dễ trở thành hai mô hình ghép cạnh nhau hơn là một framework có logic.</p></article>
-        <article class="tip-box reveal"><h3>Surrogate: kiểm tra ngoài miền training trước khi tin tốc độ</h3><p>Surrogate rất nhanh nhưng có thể rất tự tin khi extrapolate sai. Luôn theo dõi domain of validity, high-fidelity checkpoints và uncertainty.</p></article>
-      </div>
-      <div class="center"><a class="button" href="research-hub.html">Mở Research Hub →</a></div>
-    </div>
-  </section>
+<section id="service" class="section mint"><div class="container"><p class="section-kicker">Academic Service</p><div class="section-heading"><h2>Guest Editor & kết nối cộng đồng nghiên cứu</h2><p>Hai collection quốc tế phản ánh khá đúng research identity hiện tại: hydrology, modelling, remote sensing và data-driven water science.</p></div><div class="editorial-row"><article class="editorial-box"><div class="meta">Springer Nature · Applied Water Science</div><h3>Machine Learning and Data-Driven Approaches for Hydrology and Water Resource Management</h3><a href="https://link.springer.com/collections/ajaaacbbhe" target="_blank" rel="noopener">Mở collection ↗</a></article><article class="editorial-box"><div class="meta">IOP Publishing · Environmental Research Communications</div><h3>Monitoring and Modelling of Water Resources</h3><a href="https://iopscience.iop.org/collections/erc-260210-1057" target="_blank" rel="noopener">Mở Focus Collection ↗</a></article></div></div></section>
 
-  <section id="contact" class="section contact-section">
-    <div class="container contact-grid">
-      <div><p class="section-kicker">Contact & Profiles</p><h2>Kết nối nghiên cứu</h2><p>Tôi quan tâm đến hợp tác trong hydrology, flood modelling, rainfall estimation, remote sensing, uncertainty, hybrid modelling và các ứng dụng AI có cơ sở khoa học trong water science.</p></div>
-      <div class="contact-links">
-        <a href="https://scholar.google.com/citations?user=APNFD3cAAAAJ" target="_blank" rel="noopener"><span>Google Scholar</span><strong>Publications & citations ↗</strong></a>
-        <a href="https://orcid.org/0000-0002-0947-0805" target="_blank" rel="noopener"><span>ORCID</span><strong>0000-0002-0947-0805 ↗</strong></a>
-        <a href="https://www.researchgate.net/profile/Xuan-Hien-Le" target="_blank" rel="noopener"><span>ResearchGate</span><strong>Research profile ↗</strong></a>
-        <a href="https://researchmap.jp/lxhien88" target="_blank" rel="noopener"><span>researchmap</span><strong>Academic profile ↗</strong></a>
-        <a href="https://github.com/hienlx88" target="_blank" rel="noopener"><span>GitHub</span><strong>Research code ↗</strong></a>
-      </div>
-    </div>
-  </section>
+<section id="tips" class="section"><div class="container"><p class="section-kicker">Research Tips</p><div class="section-heading"><h2>Mẹo nghiên cứu chuyên ngành</h2><p>Ngắn, thực hành và ưu tiên những điều thường làm thay đổi chất lượng kết luận khoa học.</p></div><div class="tip-row"><article class="tip-box"><h3>Đừng chỉ nhìn một metric</h3><p>NSE/R² cao có thể che bias, peak timing hoặc poor generalization. Đánh giá mô hình nên gắn với mục tiêu sử dụng.</p></article><article class="tip-box"><h3>Hybrid cần kiến trúc, không chỉ “ghép”</h3><p>Xác định rõ physics nằm ở constraint, feature, residual correction hay coupling layer — rồi kiểm tra giá trị tăng thêm của từng phần.</p></article><article class="tip-box"><h3>Surrogate chỉ nhanh khi biết giới hạn</h3><p>Luôn kiểm tra domain of validity và out-of-distribution scenarios; tốc độ không thể đánh đổi cho sự tự tin sai.</p></article></div><div class="center"><a class="button primary" href="research-hub.html">Mở Góc Nghiên cứu</a></div></div></section>
+
+<section id="contact" class="section contact-section"><div class="container contact-grid"><div><p class="section-kicker">Liên hệ</p><h2>Hồ sơ học thuật & hợp tác nghiên cứu</h2><p>Trao đổi học thuật về hydrology, hydraulics, flood modelling, rainfall, remote sensing, landslide, uncertainty, hybrid và surrogate modelling.</p></div><div class="contact-links"><a href="https://scholar.google.com/citations?user=APNFD3cAAAAJ" target="_blank" rel="noopener"><span>Google Scholar</span><strong>Publications ↗</strong></a><a href="https://orcid.org/0000-0002-0947-0805" target="_blank" rel="noopener"><span>ORCID</span><strong>0000-0002-0947-0805 ↗</strong></a><a href="https://www.researchgate.net/profile/Xuan-Hien-Le" target="_blank" rel="noopener"><span>ResearchGate</span><strong>Research profile ↗</strong></a><a href="https://github.com/hienlx88" target="_blank" rel="noopener"><span>GitHub</span><strong>hienlx88 ↗</strong></a></div></div></section>
 </main>
-<footer><div class="container footer-wrap"><span>© <span id="year"></span> Lê Xuân Hiền</span><span>Hydrology · Flood Modelling · Remote Sensing · AI for Water Science</span></div></footer>
+<footer><div class="container footer-wrap"><span>© <span id="year"></span> Lê Xuân Hiền</span><span>Hydrology · Hydraulics · Remote Sensing · AI for Water Science</span></div></footer>
 <script src="script.js"></script>
-</body>
-</html>
+</body></html>
