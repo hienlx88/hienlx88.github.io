@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .scope-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.scope-strip span{font-size:var(--text-xs);font-weight:800;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#48606b}.scope-strip .new{background:#f8f1fb;border-color:#ded1ec;color:#6e568f}.plain-note{margin-top:16px;color:var(--muted);max-width:900px}.paper-links{display:flex;gap:12px;flex-wrap:wrap}.paper-links a{font-size:var(--text-sm);font-weight:800}.research-map{margin-top:18px}.research-map img{display:block;width:100%}.story-card .status{display:inline-block;margin:0 0 8px;padding:4px 8px;border-radius:999px;font-size:var(--text-xs);font-weight:800;background:#eef8f5;color:#237c70}.story-card .status.emerging{background:#fff3e7;color:#96612d}
+    .scope-strip{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.scope-strip span{font-size:var(--text-xs);font-weight:800;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:#fff;color:#48606b}.scope-strip .new{background:#f8f1fb;border-color:#ded1ec;color:#6e568f}.plain-note{margin-top:12px;color:var(--muted);max-width:980px}.paper-links{display:flex;gap:12px;flex-wrap:wrap}.paper-links a{font-size:var(--text-sm);font-weight:800}.story-card .status{display:inline-block;margin:0 0 8px;padding:4px 8px;border-radius:999px;font-size:var(--text-xs);font-weight:800;background:#eef8f5;color:#237c70}.story-card .status.emerging{background:#fff3e7;color:#96612d}.hero-overview{margin-top:40px}.hero-overview .container{width:min(1440px,calc(100% - 44px))}.hero-overview .section-kicker{margin-bottom:6px}.hero-overview h2{margin-bottom:8px}.hero-overview .research-map{margin-top:18px;background:#fff;border:1px solid rgba(216,227,233,.95);border-radius:24px;overflow:hidden;box-shadow:0 22px 54px rgba(18,52,77,.10)}.hero-overview .research-map img{display:block;width:100%;height:auto}.hero-overview .overview-caption{margin:14px auto 0;max-width:980px;text-align:center;color:#4e6275;font-size:15px;line-height:1.65}@media(max-width:900px){.hero-overview{margin-top:30px}.hero-overview .container{width:min(1440px,calc(100% - 28px))}.hero-overview .research-map{border-radius:16px}}
   </style>
 </head>
 <body>
@@ -46,14 +46,15 @@
     </div>
     <aside class="profile-card"><img class="avatar" src="https://avatars.githubusercontent.com/u/33052537?v=4" alt="Lê Xuân Hiền"><div class="profile-card-body"><div class="profile-label"><span class="status-dot"></span>Khoa học Nước</div><dl><div><dt>Chủ đề</dt><dd>Hydrology · Hydraulics · Floods · Remote Sensing</dd></div><div><dt>Phương pháp</dt><dd>ML/DL · Uncertainty · Hybrid · Surrogate</dd></div><div><dt>Kinh nghiệm</dt><dd>Vietnam · South Korea · Japan</dd></div></dl></div></aside>
   </div>
-</section>
 
-<section id="research" class="section alt">
-  <div class="container">
-    <p class="section-kicker">Tổng quan nghiên cứu</p>
-    <h2>Các hướng đang kết nối với nhau</h2>
-    <p class="plain-note">Từ quan trắc mưa và dòng chảy, mô hình thủy văn–thủy lực, viễn thám đến AI và bất định. Một số hướng đã có chuỗi công bố tương đối rõ; một số khác như optical remote sensing cho sediment và surrogate modelling đang tiếp tục được phát triển.</p>
-    <div class="research-map"><img src="assets/research-atlas-vi.svg" alt="Tổng quan các hướng nghiên cứu"></div>
+  <div id="research" class="hero-overview">
+    <div class="container">
+      <p class="section-kicker">Tổng quan nghiên cứu</p>
+      <h2>Các hướng đang kết nối với nhau</h2>
+      <p class="plain-note">Nhìn nhanh vào đây là có thể thấy những mảng nghiên cứu chính đang được theo đuổi và cách chúng đang kết nối với nhau.</p>
+      <div class="research-map"><img src="assets/research-overview-hero-vi.png?v=20260821-final" alt="Tổng quan các hướng nghiên cứu trong khoa học nước, mô hình, dữ liệu và AI" loading="eager" decoding="sync"></div>
+      <p class="overview-caption">Quan trắc và dữ liệu → mô hình → bất định và giải thích → dự báo / mô phỏng → hỗ trợ quyết định.</p>
+    </div>
   </div>
 </section>
 
