@@ -18,6 +18,19 @@ if (toggle && nav) {
   });
 }
 
+// Keep conceptual diagrams consistent with the selected language.
+if (window.location.pathname.startsWith("/en/")) {
+  document.querySelectorAll('img[src*="research-map.svg"]').forEach(img => {
+    img.src = img.src.replace("research-map.svg", "research-map-en.svg");
+  });
+  document.querySelectorAll('img[src*="hybrid-water-intelligence.svg"]').forEach(img => {
+    img.src = img.src.replace("hybrid-water-intelligence.svg", "hybrid-water-intelligence-en.svg");
+  });
+  document.querySelectorAll('img[src*="surrogate-modelling.svg"]').forEach(img => {
+    img.src = img.src.replace("surrogate-modelling.svg", "surrogate-modelling-en.svg");
+  });
+}
+
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealItems = document.querySelectorAll(".reveal");
 
