@@ -75,9 +75,9 @@ including doctoral and postdoctoral research at **Kyungpook National University*
 
 ## Website Languages
 
-The website currently supports:
+The website supports two languages:
 
-**🇻🇳 Vietnamese · 🇬🇧 English · 🇰🇷 Korean · 🇯🇵 Japanese**
+**🇻🇳 Vietnamese · 🇺🇸 English**
 
 Vietnamese is the default language.
 
@@ -93,6 +93,24 @@ This is a lightweight static academic website built with:
 - GitHub Pages
 
 The site is designed to present my research profile, publications, academic activities, research stories, and practical notes for researchers working in water science and related fields.
+
+---
+
+## Updating Publications
+
+See [PUBLICATIONS_GUIDE.md](PUBLICATIONS_GUIDE.md). Both language versions read their publication records from one file: `publications.js`.
+
+---
+
+## Local Preview
+
+This is a static website, so it can be previewed locally without a build step. From the repository root, run:
+
+```powershell
+py -m http.server 8000
+```
+
+Then open [http://localhost:8000/](http://localhost:8000/). Press `Ctrl+C` in the terminal to stop the local server. Review changes locally before pushing them to the branch configured for GitHub Pages; publishing settings determine when the public site updates.
 
 ---
 

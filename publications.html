@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Các công bố khoa học tiêu biểu của Lê Xuân Hiền trong thủy văn, mưa radar, ngập lụt, viễn thám và AI.">
+  <meta name="author" content="Lê Xuân Hiền">
+  <meta name="theme-color" content="#15364b">
+  <title>Công bố tiêu biểu | Lê Xuân Hiền</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>.publications-hero{padding:48px 0 36px}.publication-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}.publication-actions .button{margin:0}.publications-intro{max-width:760px;color:var(--muted)}.pub-list{margin-top:16px}</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="./#top">Lê Xuân Hiền<small>Thủy văn · Thủy lực · Viễn thám · AI</small></a>
+    <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false">Menu</button>
+    <nav class="nav" aria-label="Điều hướng chính">
+      <a href="./#top">Trang chủ</a><a href="./#research">Nghiên cứu</a><a href="./#publications">Công bố</a><a href="./#contact">Liên hệ</a>
+    </nav>
+    <div class="langbar" aria-label="Ngôn ngữ"><a class="active" href="./publications.html" aria-current="page">🇻🇳 VI</a><a href="en/publications.html">🇺🇸 EN</a></div>
+  </div>
+</header>
+<main id="top">
+  <section class="hero publications-hero">
+    <div class="container">
+      <p class="eyebrow">Selected research outputs</p>
+      <h1>Các publications tiêu biểu</h1>
+      <p class="hero-copy publications-intro">Một số bài báo đại diện cho các hướng nghiên cứu về thủy văn, dự báo lũ, mưa radar, ngập lụt, viễn thám và bất định. Danh mục được chọn lọc; hồ sơ Google Scholar có danh sách cập nhật đầy đủ hơn.</p>
+      <div class="actions"><a class="button primary" href="https://scholar.google.com/citations?user=APNFD3cAAAAJ" target="_blank" rel="noopener">Mở Google Scholar ↗</a><a class="button" href="./#publications">Quay lại trang chủ</a></div>
+    </div>
+  </section>
+  <section id="publication-list" class="section alt">
+    <div class="container">
+      <div class="section-heading"><div><p class="section-kicker">Công bố khoa học</p><h2>Bài báo tiêu biểu</h2></div><p>Dùng ô tìm kiếm hoặc chọn năm để lọc nhanh danh sách. Nhấn DOI để mở trang của nhà xuất bản.</p></div>
+      <div class="publication-tools">
+        <label class="publication-search"><span class="sr-only">Tìm trong công bố</span><input type="search" data-publication-search placeholder="Tìm theo tiêu đề hoặc tạp chí…" autocomplete="off"></label>
+        <div class="year-filters" data-auto-years role="group" aria-label="Lọc công bố theo năm">
+          <button type="button" class="is-active" data-year-filter="all" aria-pressed="true">Tất cả</button>
+          </div>
+        <p class="publication-count" data-publication-count data-single="1 bài báo" data-plural="{n} bài báo" aria-live="polite">6 bài báo</p>
+      </div>
+      <p class="publication-empty" data-publication-empty hidden>Không tìm thấy bài báo phù hợp.</p>
+      <div class="pub-list" data-publications>
+        </div>
+      <div class="center"><a class="button primary" href="https://scholar.google.com/citations?user=APNFD3cAAAAJ" target="_blank" rel="noopener">Xem toàn bộ hồ sơ trên Google Scholar ↗</a></div>
+    </div>
+  </section>
+</main>
+<footer><div class="container footer-wrap"><span>© <span id="year"></span> Lê Xuân Hiền</span><span>Thủy văn · Thủy lực · Viễn thám · AI cho khoa học nước</span></div></footer>
+<button class="back-to-top" type="button" aria-label="Lên đầu trang" aria-hidden="true" tabindex="-1">↑</button>
+<script src="publications.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
