@@ -27,7 +27,7 @@ const updateScrollControls=()=>{
 };
 window.addEventListener('scroll',updateScrollControls,{passive:true});
 updateScrollControls();
-if(backToTop)backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+if(backToTop)backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));
 
 const navLinks=[...document.querySelectorAll('.nav a[href^="#"]')];
 const sections=navLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
