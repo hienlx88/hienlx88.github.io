@@ -1,65 +1,80 @@
-const year = document.getElementById('year');
-if (year) year.textContent = new Date().getFullYear();
+const year=document.getElementById('year');
+if(year)year.textContent=new Date().getFullYear();
 
-const toggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('.nav');
-if (toggle && nav) {
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+const toggle=document.querySelector('.nav-toggle');
+const nav=document.querySelector('.nav');
+if(toggle&&nav){
+  toggle.addEventListener('click',()=>{
+    const open=nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',String(open));
   });
-  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
     nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-expanded','false');
   }));
 }
 
-// VI and EN are the two primary versions of the site.
-// Keep the research overview visually consistent and concise on both pages.
-const path = window.location.pathname;
-const isVi = path === '/' || (path.endsWith('/index.html') && !path.startsWith('/en/'));
-const isEn = path.startsWith('/en/');
-
-if (isVi || isEn) {
-  const research = document.querySelector('#research');
-  if (research) {
-    const kicker = research.querySelector('.section-kicker');
-    const secondaryHeading = research.querySelector('h2');
-    const intro = research.querySelector('.overview-intro, .plain-note');
-
-    if (secondaryHeading) secondaryHeading.remove();
-    if (intro) intro.remove();
-
-    if (kicker) {
-      kicker.style.fontSize = '32px';
-      kicker.style.lineHeight = '1.2';
-      kicker.style.fontWeight = '800';
-      kicker.style.letterSpacing = '-0.015em';
-      kicker.style.textTransform = 'none';
-      kicker.style.color = '#12344d';
-      kicker.style.marginBottom = '18px';
-    }
-
-    const responsiveStyle = document.createElement('style');
-    responsiveStyle.textContent = `
-      @media (max-width: 560px) {
-        .hero-overview .section-kicker {
-          font-size: 27px !important;
-          margin-bottom: 14px !important;
-        }
-      }
-    `;
-    document.head.appendChild(responsiveStyle);
+const header=document.querySelector('.site-header');
+const backToTop=document.querySelector('.back-to-top');
+const updateScrollControls=()=>{
+  const scrolled=window.scrollY>32;
+  if(header)header.classList.toggle('is-scrolled',scrolled);
+  if(backToTop){
+    backToTop.classList.toggle('is-visible',window.scrollY>520);
+    backToTop.setAttribute('aria-hidden',String(window.scrollY<=520));
+    backToTop.tabIndex=window.scrollY>520?0:-1;
   }
+};
+window.addEventListener('scroll',updateScrollControls,{passive:true});
+updateScrollControls();
+if(backToTop)backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+const navLinks=[...document.querySelectorAll('.nav a[href^="#"]')];
+const sections=navLinks.map(link=>document.querySelector(link.getAttribute('href'))).filter(Boolean);
+if('IntersectionObserver'in window&&sections.length){
+  const sectionObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      navLinks.forEach(link=>{
+        const active=link.getAttribute('href')==='#'+entry.target.id;
+        if(active)link.setAttribute('aria-current','location');
+        else link.removeAttribute('aria-current');
+      });
+    });
+  },{rootMargin:'-25% 0px -65% 0px',threshold:0});
+  sections.forEach(section=>sectionObserver.observe(section));
 }
 
-if (isEn) {
-  const overviewImage = document.querySelector('#research img');
-  if (overviewImage) {
-    // Until a pixel-matched English artwork is approved, use the exact approved VI artwork.
-    overviewImage.src = '../assets/research-overview-hero-vi.png?v=20260828-shared';
-    overviewImage.alt = 'Research overview: water science, modelling, data and AI';
-    overviewImage.loading = 'eager';
-    overviewImage.decoding = 'sync';
-  }
+const publicationTools=document.querySelector('.publication-tools');
+if(publicationTools){
+  const papers=[...document.querySelectorAll('.publication[data-year]')];
+  const search=publicationTools.querySelector('[data-publication-search]');
+  const filters=[...publicationTools.querySelectorAll('[data-year-filter]')];
+  const count=publicationTools.querySelector('[data-publication-count]');
+  const empty=publicationTools.querySelector('[data-publication-empty]');
+  let selectedYear='all';
+  const applyFilters=()=>{
+    const query=(search?.value||'').trim().toLocaleLowerCase();
+    let visible=0;
+    papers.forEach(paper=>{
+      const matchesYear=selectedYear==='all'||paper.dataset.year===selectedYear;
+      const matchesText=!query||paper.textContent.toLocaleLowerCase().includes(query);
+      const show=matchesYear&&matchesText;
+      paper.hidden=!show;
+      if(show)visible++;
+    });
+    if(count)count.textContent=visible===1?count.dataset.single:count.dataset.plural.replace('{n}',visible);
+    if(empty)empty.hidden=visible!==0;
+  };
+  filters.forEach(button=>button.addEventListener('click',()=>{
+    selectedYear=button.dataset.yearFilter||'all';
+    filters.forEach(item=>{
+      const active=item===button;
+      item.classList.toggle('is-active',active);
+      item.setAttribute('aria-pressed',String(active));
+    });
+    applyFilters();
+  }));
+  if(search)search.addEventListener('input',applyFilters);
+  applyFilters();
 }
