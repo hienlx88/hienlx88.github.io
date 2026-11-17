@@ -115,8 +115,8 @@ document.querySelectorAll('.publication-tools').forEach(tools=>{
   const note=document.createElement('p');
   note.className='publication-category-note';
   note.textContent=english
-    ?'Categories follow the journal group; all six currently listed papers are in international journals.'
-    :'Phân nhóm theo loại tạp chí; sáu bài hiện có đều thuộc nhóm tạp chí quốc tế.';
+    ?'Categories follow the journal group; the list currently contains international journal papers.'
+    :'Danh sách được phân nhóm theo loại tạp chí; hiện có các bài thuộc nhóm tạp chí quốc tế.';
   tools.prepend(note);
   tools.prepend(categoryGroup);
 });
