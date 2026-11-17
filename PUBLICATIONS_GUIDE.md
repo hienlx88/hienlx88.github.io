@@ -26,7 +26,7 @@ Mở `publications.js`, tìm dấu `]` cuối cùng của danh sách, rồi thê
 - `editorChoice`: dùng `true` nếu bài có ghi nhận Editor’s Choice, nếu không dùng `false`.
 - `featured`: `true` để bài xuất hiện cả ở trang chủ và trang Publications; `false` để chỉ xuất hiện trong danh sách Publications.
 
-Sau khi lưu, danh sách ở trang chủ và trang con VI/EN được tạo từ cùng tệp này. Trang con có thể tìm theo tiêu đề/tạp chí và lọc theo năm; nếu thêm một năm mới, cần bổ sung nút năm trong các trang `publications.html` và `en/publications.html`. Tôi có thể tự cập nhật bước nhỏ đó khi Dr. Lê gửi thông tin bài mới.
+Sau khi lưu, danh sách ở trang chủ và trang con VI/EN được tạo từ cùng tệp này. Trang con có thể tìm theo tiêu đề/tạp chí và lọc theo năm; các nút năm được tạo tự động từ dữ liệu, nên không cần chỉnh HTML khi thêm năm mới.
 
 ## Xem trước và xuất bản
 
