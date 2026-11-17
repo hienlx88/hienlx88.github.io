@@ -101,3 +101,5 @@ h1,h2,h3{margin-top:0;color:var(--navy);line-height:1.25}h1{font-size:var(--text
 @media(max-width:900px){.section{padding:68px 0}.section-heading{margin-bottom:26px}.publication-tools{grid-template-columns:1fr}.publication-count{grid-column:auto}.nav a{font-size:15px}.hero-grid{gap:40px}}
 @media(max-width:560px){.hero{padding:54px 0 48px}.hero h1{font-size:42px}.hero-copy{font-size:16px}.section{padding:58px 0}.publication{grid-template-columns:1fr;gap:5px;padding:18px}.publication h3{font-size:17px}.year-filters{gap:6px}.year-filters button{padding:8px 10px}.back-to-top{right:14px;bottom:14px}}
 @media(prefers-reduced-motion:reduce){.nav a:after,.site-header,.card,.story-card,.achievement,.tip-box,.publication,.back-to-top{transition:none}}
+
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
