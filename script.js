@@ -45,6 +45,27 @@ if('IntersectionObserver'in window&&sections.length){
   sections.forEach(section=>sectionObserver.observe(section));
 }
 
+const publicationRecords = Array.isArray(window.PUBLICATIONS) ? window.PUBLICATIONS : [];
+const publicationContainers = [...document.querySelectorAll('[data-publications]')];
+const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({
+  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+}[char]));
+const normalizeDoi = doi => !doi ? '' : (String(doi).startsWith('http') ? String(doi) : 'https://doi.org/'+String(doi).replace(/^doi:\s*/i,''));
+const makePublicationHtml = (paper,english) => {
+  const year=Number(paper.year)||'';
+  const title=escapeHtml(paper.title);
+  const authors=escapeHtml(paper.authors||'Xuan-Hien Le');
+  const journal=escapeHtml(paper.journal||'');
+  const badge=paper.editorChoice?'<span class="badge">Editor’s Choice</span>':'';
+  const doi=normalizeDoi(paper.doi);
+  const doiLink=doi?'<a href="'+escapeHtml(doi)+'" target="_blank" rel="noopener">DOI ↗</a>':'';
+  const video=paper.video?'<a href="'+escapeHtml(paper.video)+'" target="_blank" rel="noopener">'+(english?'Video abstract':'Video abstract')+' ↗</a>':'';
+  return '<article class="publication" data-year="'+escapeHtml(year)+'"><div class="pub-year">'+escapeHtml(year)+'</div><div><h3>'+title+(badge?' '+badge:'')+'</h3><p><strong>'+authors+'</strong> · <em>'+journal+'</em>.</p>'+doiLink+(doiLink&&video?' · ':'')+video+'</div></article>';
+};
+publicationContainers.forEach(container=>{
+  const rows=container.hasAttribute('data-featured-only')?publicationRecords.filter(paper=>paper.featured):publicationRecords;
+  container.innerHTML=rows.map(paper=>makePublicationHtml(paper,document.documentElement.lang.startsWith('en'))).join('');
+});
 const publicationTools=document.querySelector('.publication-tools');
 if(publicationTools){
   const papers=[...document.querySelectorAll('.publication[data-year]')];
