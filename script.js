@@ -45,13 +45,19 @@ if('IntersectionObserver'in window&&sections.length){
   sections.forEach(section=>sectionObserver.observe(section));
 }
 
-const publicationRecords = Array.isArray(window.PUBLICATIONS) ? window.PUBLICATIONS : [];
-const publicationContainers = [...document.querySelectorAll('[data-publications]')];
-const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({
-  '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-}[char]));
-const normalizeDoi = doi => !doi ? '' : (String(doi).startsWith('http') ? String(doi) : 'https://doi.org/'+String(doi).replace(/^doi:\s*/i,''));
-const makePublicationHtml = (paper,english) => {
+const publicationRecords=Array.isArray(window.PUBLICATIONS)?window.PUBLICATIONS:[];
+const publicationContainers=[...document.querySelectorAll('[data-publications]')];
+const english=document.documentElement.lang.startsWith('en');
+const categoryKeys=['international','vietnam','korea'];
+const categoryLabels=english
+  ?{all:'All journals',international:'International journals',vietnam:'Vietnamese journals',korea:'Korean journals'}
+  :{all:'Tất cả tạp chí',international:'Tạp chí quốc tế',vietnam:'Tạp chí Việt Nam',korea:'Tạp chí Hàn Quốc'};
+const emptyLabels=english
+  ?{all:'No matching publications found.',international:'No matching international journal papers found.',vietnam:'No Vietnamese journal papers have been added yet.',korea:'No Korean journal papers have been added yet.'}
+  :{all:'Không tìm thấy công bố phù hợp.',international:'Không tìm thấy bài báo quốc tế phù hợp.',vietnam:'Chưa có bài báo tạp chí Việt Nam trong danh sách.',korea:'Chưa có bài báo tạp chí Hàn Quốc trong danh sách.'};
+const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const normalizeDoi=doi=>!doi?'':(String(doi).startsWith('http')?String(doi):'https://doi.org/'+String(doi).replace(/^doi:\s*/i,''));
+const makePublicationHtml=(paper)=>{
   const year=Number(paper.year)||'';
   const title=escapeHtml(paper.title);
   const authors=escapeHtml(paper.authors||'Xuan-Hien Le');
@@ -59,61 +65,101 @@ const makePublicationHtml = (paper,english) => {
   const badge=paper.editorChoice?'<span class="badge">Editor’s Choice</span>':'';
   const doi=normalizeDoi(paper.doi);
   const doiLink=doi?'<a href="'+escapeHtml(doi)+'" target="_blank" rel="noopener">DOI ↗</a>':'';
-  const video=paper.video?'<a href="'+escapeHtml(paper.video)+'" target="_blank" rel="noopener">'+(english?'Video abstract':'Video abstract')+' ↗</a>':'';
-  return '<article class="publication" data-year="'+escapeHtml(year)+'"><div class="pub-year">'+escapeHtml(year)+'</div><div><h3>'+title+(badge?' '+badge:'')+'</h3><p><strong>'+authors+'</strong> · <em>'+journal+'</em>.</p>'+doiLink+(doiLink&&video?' · ':'')+video+'</div></article>';
+  const video=paper.video?'<a href="'+escapeHtml(paper.video)+'" target="_blank" rel="noopener">Video abstract ↗</a>':'';
+  const category=categoryKeys.includes(paper.category)?paper.category:'international';
+  return '<article class="publication" data-year="'+escapeHtml(year)+'" data-category="'+category+'"><div class="pub-year">'+escapeHtml(year)+'</div><div><h3>'+title+(badge?' '+badge:'')+'</h3><p><strong>'+authors+'</strong> · <em>'+journal+'</em>.</p>'+doiLink+(doiLink&&video?' · ':'')+video+'</div></article>';
 };
+const hasFeaturedOnly=publicationContainers.some(container=>container.hasAttribute('data-featured-only'));
+const displayedRecords=hasFeaturedOnly?publicationRecords.filter(paper=>paper.featured):publicationRecords;
 publicationContainers.forEach(container=>{
   const rows=container.hasAttribute('data-featured-only')?publicationRecords.filter(paper=>paper.featured):publicationRecords;
-  container.innerHTML=rows.map(paper=>makePublicationHtml(paper,document.documentElement.lang.startsWith('en'))).join('');
+  container.innerHTML=rows.map(makePublicationHtml).join('');
 });
 document.querySelectorAll('.year-filters[data-auto-years]').forEach(group=>{
-  const english=document.documentElement.lang.startsWith('en');
-  let allButton=group.querySelector('[data-year-filter="all"]');
-  if(!allButton){
-    allButton=document.createElement('button');
-    allButton.type='button';
-    allButton.dataset.yearFilter='all';
-    allButton.setAttribute('aria-pressed','true');
-    allButton.classList.add('is-active');
-    allButton.textContent=english?'All years':'Tất cả';
-    group.appendChild(allButton);
-  }
-  const years=[...new Set(publicationRecords.map(paper=>String(paper.year)).filter(Boolean))]
+  const allButton=group.querySelector('[data-year-filter="all"]');
+  if(allButton)allButton.textContent=english?'All years':'Tất cả';
+  const years=[...new Set(displayedRecords.map(paper=>String(paper.year)).filter(Boolean))]
     .sort((a,b)=>Number(b)-Number(a));
-  years.forEach(year=>{
+  years.forEach(value=>{
     const button=document.createElement('button');
     button.type='button';
-    button.dataset.yearFilter=year;
+    button.dataset.yearFilter=value;
     button.setAttribute('aria-pressed','false');
-    button.textContent=year;
+    button.textContent=value;
     group.appendChild(button);
   });
+});
+const categoryCounts=Object.fromEntries(categoryKeys.map(key=>[key,displayedRecords.filter(paper=>paper.category===key).length]));
+document.querySelectorAll('.publication-tools').forEach(tools=>{
+  if(tools.querySelector('[data-auto-categories]'))return;
+  const categoryGroup=document.createElement('div');
+  categoryGroup.className='publication-categories';
+  categoryGroup.dataset.autoCategories='';
+  categoryGroup.setAttribute('role','group');
+  categoryGroup.setAttribute('aria-label',english?'Filter publications by journal category':'Lọc công bố theo loại tạp chí');
+  const allButton=document.createElement('button');
+  allButton.type='button';
+  allButton.dataset.categoryFilter='all';
+  allButton.className='is-active';
+  allButton.setAttribute('aria-pressed','true');
+  allButton.textContent=categoryLabels.all+' ('+displayedRecords.length+')';
+  categoryGroup.appendChild(allButton);
+  categoryKeys.forEach(key=>{
+    const button=document.createElement('button');
+    button.type='button';
+    button.dataset.categoryFilter=key;
+    button.setAttribute('aria-pressed','false');
+    button.textContent=categoryLabels[key]+' ('+(categoryCounts[key]||0)+')';
+    categoryGroup.appendChild(button);
+  });
+  const note=document.createElement('p');
+  note.className='publication-category-note';
+  note.textContent=english
+    ?'Categories follow the journal group; the list currently contains international journal papers.'
+    :'Danh sách được phân nhóm theo loại tạp chí; hiện có các bài thuộc nhóm tạp chí quốc tế.';
+  tools.prepend(note);
+  tools.prepend(categoryGroup);
 });
 
 const publicationTools=document.querySelector('.publication-tools');
 if(publicationTools){
   const papers=[...document.querySelectorAll('.publication[data-year]')];
   const search=publicationTools.querySelector('[data-publication-search]');
-  const filters=[...publicationTools.querySelectorAll('[data-year-filter]')];
+  const yearFilters=[...publicationTools.querySelectorAll('[data-year-filter]')];
+  const categoryFilters=[...publicationTools.querySelectorAll('[data-category-filter]')];
   const count=publicationTools.querySelector('[data-publication-count]');
   const empty=publicationTools.querySelector('[data-publication-empty]');
   let selectedYear='all';
+  let selectedCategory='all';
   const applyFilters=()=>{
     const query=(search?.value||'').trim().toLocaleLowerCase();
     let visible=0;
     papers.forEach(paper=>{
       const matchesYear=selectedYear==='all'||paper.dataset.year===selectedYear;
+      const matchesCategory=selectedCategory==='all'||paper.dataset.category===selectedCategory;
       const matchesText=!query||paper.textContent.toLocaleLowerCase().includes(query);
-      const show=matchesYear&&matchesText;
+      const show=matchesYear&&matchesCategory&&matchesText;
       paper.hidden=!show;
       if(show)visible++;
     });
     if(count)count.textContent=visible===1?count.dataset.single:count.dataset.plural.replace('{n}',visible);
-    if(empty)empty.hidden=visible!==0;
+    if(empty){
+      empty.hidden=visible!==0;
+      if(visible===0)empty.textContent=emptyLabels[(selectedCategory==='all'&&categoryCounts[selectedCategory]===undefined)?'all':selectedCategory]||emptyLabels.all;
+    }
   };
-  filters.forEach(button=>button.addEventListener('click',()=>{
+  yearFilters.forEach(button=>button.addEventListener('click',()=>{
     selectedYear=button.dataset.yearFilter||'all';
-    filters.forEach(item=>{
+    yearFilters.forEach(item=>{
+      const active=item===button;
+      item.classList.toggle('is-active',active);
+      item.setAttribute('aria-pressed',String(active));
+    });
+    applyFilters();
+  }));
+  categoryFilters.forEach(button=>button.addEventListener('click',()=>{
+    selectedCategory=button.dataset.categoryFilter||'all';
+    categoryFilters.forEach(item=>{
       const active=item===button;
       item.classList.toggle('is-active',active);
       item.setAttribute('aria-pressed',String(active));
