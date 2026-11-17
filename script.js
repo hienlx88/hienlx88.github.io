@@ -66,6 +66,30 @@ publicationContainers.forEach(container=>{
   const rows=container.hasAttribute('data-featured-only')?publicationRecords.filter(paper=>paper.featured):publicationRecords;
   container.innerHTML=rows.map(paper=>makePublicationHtml(paper,document.documentElement.lang.startsWith('en'))).join('');
 });
+document.querySelectorAll('.year-filters[data-auto-years]').forEach(group=>{
+  const english=document.documentElement.lang.startsWith('en');
+  let allButton=group.querySelector('[data-year-filter="all"]');
+  if(!allButton){
+    allButton=document.createElement('button');
+    allButton.type='button';
+    allButton.dataset.yearFilter='all';
+    allButton.setAttribute('aria-pressed','true');
+    allButton.classList.add('is-active');
+    allButton.textContent=english?'All years':'Tất cả';
+    group.appendChild(allButton);
+  }
+  const years=[...new Set(publicationRecords.map(paper=>String(paper.year)).filter(Boolean))]
+    .sort((a,b)=>Number(b)-Number(a));
+  years.forEach(year=>{
+    const button=document.createElement('button');
+    button.type='button';
+    button.dataset.yearFilter=year;
+    button.setAttribute('aria-pressed','false');
+    button.textContent=year;
+    group.appendChild(button);
+  });
+});
+
 const publicationTools=document.querySelector('.publication-tools');
 if(publicationTools){
   const papers=[...document.querySelectorAll('.publication[data-year]')];
