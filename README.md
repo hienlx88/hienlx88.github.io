@@ -77,7 +77,7 @@ including doctoral and postdoctoral research at **Kyungpook National University*
 
 The website supports two languages:
 
-**🇻🇳 Vietnamese · 🇬🇧 English**
+**🇻🇳 Vietnamese · 🇺🇸 English**
 
 Vietnamese is the default language.
 
