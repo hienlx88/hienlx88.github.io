@@ -96,6 +96,12 @@ The site is designed to present my research profile, publications, academic acti
 
 ---
 
+## Updating Publications
+
+See [PUBLICATIONS_GUIDE.md](PUBLICATIONS_GUIDE.md). Both language versions read their publication records from one file: `publications.js`.
+
+---
+
 ## Local Preview
 
 This is a static website, so it can be previewed locally without a build step. From the repository root, run:
