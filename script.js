@@ -128,7 +128,7 @@ if(publicationTools){
   const yearFilters=[...publicationTools.querySelectorAll('[data-year-filter]')];
   const categoryFilters=[...publicationTools.querySelectorAll('[data-category-filter]')];
   const count=publicationTools.querySelector('[data-publication-count]');
-  const empty=publicationTools.querySelector('[data-publication-empty]');
+  const empty=document.querySelector('[data-publication-empty]');
   let selectedYear='all';
   let selectedCategory='all';
   const applyFilters=()=>{
